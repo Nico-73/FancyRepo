@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using FancyMoqExtensions;
 using Moq;
+using NLog;
 
 namespace FancyClassLibrary
 {
@@ -11,6 +12,7 @@ namespace FancyClassLibrary
         public UnfancyClass()
         {
             UnfancyStringListMock = new Mock<IEnumerable<string>>();
+            LessFancyClass = new LessFancyClass(new NullLogger(new LogFactory()));
         }
 
         /// <inheritdoc />
@@ -25,6 +27,9 @@ namespace FancyClassLibrary
 
         /// <inheritdoc />
         public Mock<IEnumerable<string>> UnfancyStringListMock { get; }
+
+        /// <inheritdoc />
+        public LessFancyClass LessFancyClass { get; set; }
 
         public void DoExtremelyUnfancyThings()
         {

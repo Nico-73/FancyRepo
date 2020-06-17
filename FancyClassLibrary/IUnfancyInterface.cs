@@ -15,6 +15,8 @@ namespace FancyClassLibrary
 
         Mock<IEnumerable<string>> UnfancyStringListMock { get; }
 
+        LessFancyClass LessFancyClass { get; set; }
+
         void DoExtremelyUnfancyThings();
     }
 }
